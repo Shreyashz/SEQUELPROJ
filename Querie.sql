@@ -1,0 +1,5 @@
+SELECT count(DISTINCT t.teamID) as total_teams, count(DISTINCT s.staffID) as total_staff, count(DISTINCT tm.teamMembID) as total_players, count(DISTINCT a.attendeeID) as total_attendees FROM team as t, staff as s, team_member as tm, attendee as a;
+SELECT A.TEAMNAME AS TEAM_A, C.ScoreTeamA TeamA_Score, B.TEAMNAME AS TEAM_B, C.ScoreTeamB TeamB_Score FROM MATCHUP C INNER JOIN TEAM A ON teama=teamid, matchup D INNER JOIN team B ON  teamb=teamid WHERE C.MATCHID=D.MATCHID='1' AND C.MATCHID !=0 ORDER BY C.MATCHID;
+SELECT S.FNAME, S.Salary, S.Role FROM staff S WHERE s.salary=(select max(salary) from staff);
+SELECT A.TeamName Winner, S.stadiumName, M.MatchDate FROM Team A inner join Matchup M on M.Winner=A.teamID INNER JOIN Stage S on S.StageID=M.StageID WHERE S.StageID<>0;
+SELECT avg(present_members) avrage_members_presentPerTeam FROM (SELECT count(teamMembID) Present_members FROM team_member WHERE teamID IN (SELECT teamID FROM team));
